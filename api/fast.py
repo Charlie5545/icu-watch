@@ -1,5 +1,5 @@
 # TODO: Import your package, replace this by explicit imports of what you need
-from packagename.main import predict
+from icu_watch_package.main import predict
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

@@ -1,3 +1,7 @@
+# to-do: before thinking about the docker-image, inserting relevant
+# variables from the makefile into the env-file. It is to save time to not
+# type it in the terminal
+
 #======================#
 # Install, clean, test #
 #======================#
