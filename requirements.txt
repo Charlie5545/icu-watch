@@ -16,3 +16,6 @@ uvicorn
 # tests
 httpx
 pytest-asyncio
+
+google-cloud-storage
+python-dotenv
