@@ -16,12 +16,12 @@ FROM python:3.10
 
 
 # Copy everything we need into the image
-COPY packagename packagename
+COPY icu_watch_package icu_watch_package
 COPY api api
-COPY scripts scripts
+#COPY scripts scripts
 COPY requirements.txt requirements_docker.txt
 COPY setup.py setup.py
-COPY credentials.json credentials.json
+#COPY credentials.json credentials.json
 
 # Install everything
 RUN pip install --no-cache-dir --upgrade pip

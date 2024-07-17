@@ -1,13 +1,13 @@
-pytest
-pylint
+#pytest
+#pylint
 ipdb
-jupyterlab
+#jupyterlab
 numpy
 pandas
-matplotlib
-seaborn
+#matplotlib
+#seaborn
 scikit-learn
-xgboost
+#xgboost
 
 #math
 
@@ -17,7 +17,7 @@ pytz
 uvicorn
 # tests
 httpx
-pytest-asyncio
+#pytest-asyncio
 
-google-cloud-storage
-python-dotenv
+#google-cloud-storage
+#python-dotenv
