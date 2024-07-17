@@ -8,7 +8,6 @@ matplotlib
 seaborn
 scikit-learn
 xgboost
-darts
 tensorflow
 traitlets==5.5.0
 
