@@ -9,6 +9,8 @@ seaborn
 scikit-learn
 xgboost
 
+#math
+
 # API
 fastapi==0.108.0
 pytz
