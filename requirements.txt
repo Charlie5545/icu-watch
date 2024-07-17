@@ -1,0 +1,23 @@
+pytest
+pylint
+ipdb
+jupyterlab
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+xgboost
+
+#math
+
+# API
+fastapi==0.108.0
+pytz
+uvicorn
+# tests
+httpx
+pytest-asyncio
+
+google-cloud-storage
+python-dotenv
