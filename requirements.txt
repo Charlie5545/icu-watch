@@ -8,8 +8,9 @@ matplotlib
 seaborn
 scikit-learn
 xgboost
+darts
 
-#math
+traitlets==5.5.0
 
 # API
 fastapi==0.108.0
@@ -18,9 +19,3 @@ uvicorn
 # tests
 httpx
 pytest-asyncio
-<<<<<<< HEAD
-=======
-
-google-cloud-storage
-python-dotenv
->>>>>>> master
