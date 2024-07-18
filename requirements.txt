@@ -8,6 +8,8 @@ matplotlib
 seaborn
 scikit-learn
 xgboost
+tensorflow
+traitlets==5.5.0
 
 #math
 
