@@ -40,9 +40,3 @@ if __name__ == "__main__":
         logging.info("Model loaded successfully in test run.")
     else:
         logging.error("Failed to load model in test run.")
-
-    df = pd.read_csv('raw_data/sample2.csv')
-    df = preprocess_input(df)
-    model = load_trained_model()
-    print(model.predict)
-    print(model.predict(df))

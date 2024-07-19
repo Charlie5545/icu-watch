@@ -46,8 +46,5 @@ def preprocess_input(data):
     print('Input data successfully preprocessed')
     return X_seq
 
-if __name__ == "__main__":
-    # Test the preprocessing function
-    sample_data = pd.read_csv('sample2.csv')
-    processed_data = preprocess_input(sample_data)
-    print("Preprocessed data shape:", processed_data.shape)
+# if __name__ == "__main__":
+#     # Test the preprocessing function

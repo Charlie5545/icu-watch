@@ -5,7 +5,7 @@ from io import BytesIO
 import tensorflow
 from icu_watch_package.model_new import load_trained_model
 from icu_watch_package.preprocessor import preprocess_input
-
+import uvicorn
 
 app = FastAPI()
 
@@ -19,12 +19,6 @@ app.add_middleware(
 
 #app.state.model = load_trained_model()
 model = load_trained_model()
-
-df = pd.read_csv('raw_data/sample2.csv')
-df = preprocess_input(df)
-model = load_trained_model()
-print(model.predict(df))
-
 
 @app.post("/predict")
 def pred(file: UploadFile = File(...)):
@@ -55,6 +49,5 @@ def pred(file: UploadFile = File(...)):
 def root():
     return {"greeting": "Hello"}
 
-#if __name__ == "__main__":
-#    import uvicorn
-#    uvicorn.run(app, host="0.0.0.0", port=8000)
+if __name__ == "__main__":
+   uvicorn.run(app, host="0.0.0.0", port=8000)
