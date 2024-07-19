@@ -8,8 +8,8 @@ matplotlib
 seaborn
 scikit-learn
 xgboost
+tensorflow
 
-#math
 
 # API
 fastapi==0.108.0
@@ -21,3 +21,4 @@ pytest-asyncio
 
 google-cloud-storage
 python-dotenv
+python-multipart
