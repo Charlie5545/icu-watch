@@ -21,3 +21,4 @@ pytest-asyncio
 
 google-cloud-storage
 python-dotenv
+python-multipart
