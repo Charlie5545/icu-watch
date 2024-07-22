@@ -39,7 +39,7 @@ def pred(file: UploadFile = File(...)):
 
 
         print('workin this stage 1',prediction)
-        prediction_classes = (prediction > 0.5).astype(int)
+        prediction_classes = prediction #(prediction > 0.3).astype(int)
         print('workin this stage 2',prediction_classes)
         return {"predictions": prediction_classes.flatten().tolist()}
     #except Exception as e:
