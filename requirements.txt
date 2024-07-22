@@ -1,20 +1,19 @@
-pytest
-pylint
 ipdb
-jupyterlab
 numpy
 pandas
-matplotlib
-seaborn
 scikit-learn
-xgboost
 tensorflow
 traitlets==5.5.0
+
 
 # API
 fastapi==0.108.0
 pytz
 uvicorn
+
 # tests
 httpx
 pytest-asyncio
+google-cloud-storage
+python-dotenv
+python-multipart
