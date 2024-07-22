@@ -9,11 +9,7 @@ seaborn
 scikit-learn
 xgboost
 tensorflow
-<<<<<<< HEAD
 traitlets==5.5.0
-=======
-
->>>>>>> origin
 
 # API
 fastapi==0.108.0
@@ -22,10 +18,3 @@ uvicorn
 # tests
 httpx
 pytest-asyncio
-<<<<<<< HEAD
-=======
-
-google-cloud-storage
-python-dotenv
-python-multipart
->>>>>>> origin
