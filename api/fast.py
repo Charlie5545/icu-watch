@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # TODO: Import your package, replace this by explicit imports of what you need
 from icu_watch_package.main import predict
 
@@ -6,7 +7,16 @@ from icu_watch_package.main import predict
 import pandas as pd
 >>>>>>> master
 from fastapi import FastAPI
+=======
+from fastapi import FastAPI, File, UploadFile, HTTPException
+>>>>>>> master
 from fastapi.middleware.cors import CORSMiddleware
+import pandas as pd
+from io import BytesIO
+import tensorflow
+from icu_watch_package.model_new import load_trained_model
+from icu_watch_package.preprocessor import preprocess_input
+import uvicorn
 
 app = FastAPI()
 
@@ -18,66 +28,37 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-def load_model():
-    # TODO: Implement actual model loading logic
-    return None
+#app.state.model = load_trained_model()
+model = load_trained_model()
 
-def preprocess_features(data):
-    # TODO: Implement actual preprocessing logic
-    return data
+@app.post("/predict")
+def pred(file: UploadFile = File(...)):
+    if model  is None:
+        raise HTTPException(status_code=500, detail="Model not loaded. Please check server logs.")
 
-# Preload the model
-app.state.model = load_model()
+    #try:
+    if True:
+        data = pd.read_csv(BytesIO(file.file.read()))
+        print(data)
+        input_data = preprocess_input(data)
+        print(input_data)
+        print(input_data.shape)
+        print(model.summary())
+        print('workin this stage')
+        #prediction = app.state.model.predict(input_data)
+        prediction = model.predict(input_data)
 
-@app.get("/predict")
-def predict(
-        Hour: int,
-        HR: float,
-        O2Sat: float,
-        Temp: float,
-        SBP: float,
-        MAP: float,
-        DBP: float,
-        Resp: float,
-        EtCO2: float,
-        Age: float,
-        Gender: str
-    ):
-    """
-    Make a single sepsis prediction.
-    """
-    data = {
-        "Hour": Hour,
-        "HR": HR,
-        "O2Sat": O2Sat,
-        "Temp": Temp,
-        "SBP": SBP,
-        "MAP": MAP,
-        "DBP": DBP,
-        "Resp": Resp,
-        "EtCO2": EtCO2,
-        "Age": Age,
-        "Gender_Female": 1 if Gender == 'Female' else 0,
-        "Gender_Male": 1 if Gender == 'Male' else 0
-    }
 
-    X_pred = pd.DataFrame([data])
-
-    model = app.state.model
-    if model is not None:
-        X_processed = preprocess_features(X_pred)
-        y_pred = model.predict(X_processed)
-        sepsis_prediction = int(y_pred[0])
-    else:
-        # Dummy prediction if model is not available
-        sepsis_prediction = 0
-
-    return {"sepsis": sepsis_prediction}
+        print('workin this stage 1',prediction)
+        prediction_classes = prediction #(prediction > 0.3).astype(int)
+        print('workin this stage 2',prediction_classes)
+        return {"predictions": prediction_classes.flatten().tolist()}
+    #except Exception as e:
+    #    raise HTTPException(status_code=400, detail=str(e))
 
 @app.get("/")
 def root():
     return {"greeting": "Hello"}
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+   uvicorn.run(app, host="0.0.0.0", port=8000)
