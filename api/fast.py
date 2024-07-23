@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# TODO: Import your package, replace this by explicit imports of what you need
-from icu_watch_package.main import predict
-
-=======
 import pandas as pd
->>>>>>> master
-from fastapi import FastAPI
-=======
 from fastapi import FastAPI, File, UploadFile, HTTPException
->>>>>>> master
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from io import BytesIO
